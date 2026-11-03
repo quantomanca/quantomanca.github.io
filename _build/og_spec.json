@@ -1,0 +1,123 @@
+[
+ {
+  "id": "home",
+  "title": "Quanto manca\nalle tue feste?",
+  "colors": [
+   "#1A2E66",
+   "#0A1433",
+   "#050A1C"
+  ],
+  "accent": "#F2C261",
+  "icon": "Default"
+ },
+ {
+  "id": "natale",
+  "title": "Quanto manca\na Natale?",
+  "colors": [
+   "#1A2E66",
+   "#0A1433",
+   "#050A1C"
+  ],
+  "accent": "#F2C261",
+  "icon": "Default"
+ },
+ {
+  "id": "capodanno",
+  "title": "Quanto manca\na Capodanno?",
+  "colors": [
+   "#332466",
+   "#140F33",
+   "#05050F"
+  ],
+  "accent": "#F2C261",
+  "icon": "NewYear"
+ },
+ {
+  "id": "befana",
+  "title": "Quanto manca\nalla Befana?",
+  "colors": [
+   "#402961",
+   "#1F1438",
+   "#0A0814"
+  ],
+  "accent": "#FF9E3D",
+  "icon": "Epiphany"
+ },
+ {
+  "id": "san-valentino",
+  "title": "Quanto manca\na San Valentino?",
+  "colors": [
+   "#FF6694",
+   "#C71A5C",
+   "#5C082E"
+  ],
+  "accent": "#FFDBEB",
+  "icon": "Valentine"
+ },
+ {
+  "id": "carnevale",
+  "title": "Quanto manca\na Carnevale?",
+  "colors": [
+   "#F233A6",
+   "#7A2EF7",
+   "#290A4C"
+  ],
+  "accent": "#FFE04C",
+  "icon": "Carnival"
+ },
+ {
+  "id": "festa-del-papa",
+  "title": "Quanto manca\nalla Festa del papà?",
+  "colors": [
+   "#40739E",
+   "#213B4C",
+   "#0F1F29"
+  ],
+  "accent": "#9EDBFF",
+  "icon": "FathersDay"
+ },
+ {
+  "id": "pasqua",
+  "title": "Quanto manca\na Pasqua?",
+  "colors": [
+   "#8CD19E",
+   "#409473",
+   "#144C3D"
+  ],
+  "accent": "#FFE666",
+  "icon": "Easter"
+ },
+ {
+  "id": "festa-della-mamma",
+  "title": "Quanto manca\nalla Festa della mamma?",
+  "colors": [
+   "#FA9ECC",
+   "#DB2678",
+   "#6B0F3B"
+  ],
+  "accent": "#FFDBEB",
+  "icon": "MothersDay"
+ },
+ {
+  "id": "ferragosto",
+  "title": "Quanto manca\na Ferragosto?",
+  "colors": [
+   "#FFB247",
+   "#FF703D",
+   "#1F3D73"
+  ],
+  "accent": "#FFEB9E",
+  "icon": "Ferragosto"
+ },
+ {
+  "id": "halloween",
+  "title": "Quanto manca\nad Halloween?",
+  "colors": [
+   "#3D1A52",
+   "#1A0A24",
+   "#0A050F"
+  ],
+  "accent": "#FF8C1A",
+  "icon": "Halloween"
+ }
+]

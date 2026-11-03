@@ -1,0 +1,34 @@
+# Ogni notte rigenera le pagine: quando una festa passa, titoli, testi e tabelle
+# passano da soli all'anno successivo.
+name: Aggiorna le date delle feste
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 _build/build_site.py
+      - name: Salva le modifiche
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898237+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Aggiorna le date delle feste"
+            git push
+            gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
