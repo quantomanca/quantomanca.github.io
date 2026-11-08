@@ -25,10 +25,10 @@ BASE = "https://quantomanca.github.io/"
 APP_NAME = "Quanto Manca"
 # Link alla scheda App Store, per esempio "https://apps.apple.com/it/app/quanto-manca/id1234567890".
 # Finché è None il sito mostra "Presto su App Store".
-APP_STORE_URL = None
+APP_STORE_URL = "https://apps.apple.com/it/app/quanto-manca-countdown-feste/id6830202016"
 SUPPORT_EMAIL = "supporto.quantomanca@gmail.com"
 AUTHOR = "Antonio Rossi"
-VERSION = "3"  # cambia per forzare il ricaricamento di CSS e JS
+VERSION = "4"  # cambia per forzare il ricaricamento di CSS e JS
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT = os.path.dirname(SITE)
@@ -358,8 +358,9 @@ def home():
     q0 = QUOTES[0]
 
     faq = HOME_FAQ + [
+        ("Dove si scarica Quanto Manca?",
+         "Quanto Manca è disponibile gratis su App Store per iPhone con iOS 17 o successivo: cerca «Quanto Manca» o usa il pulsante qui sopra.") if APP_STORE_URL else
         ("Quando esce Quanto Manca?",
-         "Quanto Manca è disponibile su App Store per iPhone." if APP_STORE_URL else
          "Quanto Manca è in arrivo su App Store per iPhone, in tempo per il conto alla rovescia di Natale."),
     ]
 
