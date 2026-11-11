@@ -28,9 +28,21 @@ APP_NAME = "Quanto Manca"
 APP_STORE_URL = "https://apps.apple.com/it/app/quanto-manca-countdown-feste/id6830202016"
 SUPPORT_EMAIL = "supporto.quantomanca@gmail.com"
 AUTHOR = "Antonio Rossi"
+# Profili social: compaiono nel piè di pagina e, per Google, nei dati strutturati della home.
+SOCIAL = [
+    ("Instagram", "https://www.instagram.com/quantomanca.app/",
+     '<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/>'),
+    ("TikTok", "https://www.tiktok.com/@quantomanca.app",
+     '<path fill="currentColor" d="M16.6 3c.3 2.2 1.8 3.8 4 4v3.2c-1.5 0-2.9-.5-4-1.2v6.2a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.1v3.3a2.6 2.6 0 1 0 1.8 2.4V3h3.1z"/>'),
+    ("YouTube", "https://www.youtube.com/@quantomanca_app",
+     '<path fill="currentColor" fill-rule="evenodd" d="M22.5 7.2a2.8 2.8 0 0 0-2-2C18.8 4.7 12 4.7 12 4.7s-6.8 0-8.5.5a2.8 2.8 0 0 0-2 2A29 29 0 0 0 1 12a29 29 0 0 0 .5 4.8 2.8 2.8 0 0 0 2 2c1.7.5 8.5.5 8.5.5s6.8 0 8.5-.5a2.8 2.8 0 0 0 2-2A29 29 0 0 0 23 12a29 29 0 0 0-.5-4.8zM9.8 15.1V8.9l5.4 3.1-5.4 3.1z"/>'),
+    ("Facebook", "https://www.facebook.com/profile.php?id=61596268028960",
+     '<path fill="currentColor" d="M13.5 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/>'),
+]
+
 # Codice del meta tag di Google Search Console (solo il valore di content="…").
 GOOGLE_SITE_VERIFICATION = "HgXmCohtSAiCg1BIhbC1oZsY2eEsGnpHBuj6DyZ_4ww"
-VERSION = "4"  # cambia per forzare il ricaricamento di CSS e JS
+VERSION = "5"  # cambia per forzare il ricaricamento di CSS e JS
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT = os.path.dirname(SITE)
@@ -207,6 +219,12 @@ def header(current=""):
 """
 
 
+def social_links():
+    return "\n".join(
+        f'<li><a href="{e(url)}" rel="me noopener" aria-label="{APP_NAME} su {name}"><svg viewBox="0 0 24 24" aria-hidden="true">{icon}</svg></a></li>'
+        for name, url, icon in SOCIAL)
+
+
 def footer():
     items = "\n".join(f'<li><a href="/{h["url"]}">Quanto manca {e(h["to"])}</a></li>' for h in HOLIDAYS)
     return f"""<footer class="site-footer">
@@ -215,6 +233,9 @@ def footer():
 <div>
 <a class="logo" href="/"><img src="/assets/icons/app-64.png" alt="" width="34" height="34" loading="lazy">{APP_NAME}</a>
 <p style="margin-top:14px">Il conto alla rovescia per le tue feste, con sfondi animati, suoni, calendario dell'Avvento e widget per iPhone.</p>
+<ul class="social" aria-label="{APP_NAME} sui social">
+{social_links()}
+</ul>
 </div>
 <div>
 <h2>Conti alla rovescia</h2>
@@ -386,12 +407,21 @@ def home():
         app_ld["downloadUrl"] = APP_STORE_URL
         app_ld["installUrl"] = APP_STORE_URL
     site_ld = {"@context": "https://schema.org", "@type": "WebSite", "name": APP_NAME, "url": BASE, "inLanguage": "it-IT"}
+    org_ld = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": APP_NAME,
+        "url": BASE,
+        "logo": BASE + "assets/icons/app-512.png",
+        "email": SUPPORT_EMAIL,
+        "sameAs": [url for _, url, _ in SOCIAL],
+    }
 
     page = head(
         "Quanto Manca – Il countdown per Natale e le feste, per iPhone",
         "Quanto manca a Natale? Il conto alla rovescia live per Natale e le tue feste, con sfondi animati, calendario dell'Avvento e widget per iPhone.",
         "", "assets/og/home.jpg", "Quanto Manca, il conto alla rovescia per le tue feste",
-        [site_ld, app_ld, faq_jsonld(faq)],
+        [site_ld, org_ld, app_ld, faq_jsonld(faq)],
     )
     page += header()
     page += f"""<main id="contenuto">
