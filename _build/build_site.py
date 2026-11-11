@@ -28,6 +28,8 @@ APP_NAME = "Quanto Manca"
 APP_STORE_URL = "https://apps.apple.com/it/app/quanto-manca-countdown-feste/id6830202016"
 SUPPORT_EMAIL = "supporto.quantomanca@gmail.com"
 AUTHOR = "Antonio Rossi"
+# Codice del meta tag di Google Search Console (solo il valore di content="…").
+GOOGLE_SITE_VERIFICATION = "HgXmCohtSAiCg1BIhbC1oZsY2eEsGnpHBuj6DyZ_4ww"
 VERSION = "4"  # cambia per forzare il ricaricamento di CSS e JS
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -141,6 +143,9 @@ def store_button(extra=""):
 def head(title, description, path, og_image, og_alt, jsonld, extra=""):
     url = BASE + path
     smart_banner = ""
+    google_tag = ""
+    if GOOGLE_SITE_VERIFICATION and path == "":
+        google_tag = f'\n<meta name="google-site-verification" content="{e(GOOGLE_SITE_VERIFICATION)}">'
     if APP_STORE_URL and "/id" in APP_STORE_URL:
         app_id = APP_STORE_URL.rsplit("/id", 1)[1].split("?")[0]
         smart_banner = f'\n<meta name="apple-itunes-app" content="app-id={e(app_id)}">'
@@ -155,7 +160,7 @@ def head(title, description, path, og_image, og_alt, jsonld, extra=""):
 <link rel="canonical" href="{url}">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="author" content="{AUTHOR}">
-<meta name="theme-color" content="#0A1433">{smart_banner}
+<meta name="theme-color" content="#0A1433">{smart_banner}{google_tag}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{APP_NAME}">
 <meta property="og:locale" content="it_IT">
