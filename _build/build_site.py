@@ -26,6 +26,9 @@ APP_NAME = "Quanto Manca"
 # Link alla scheda App Store, per esempio "https://apps.apple.com/it/app/quanto-manca/id1234567890".
 # Finché è None il sito mostra "Presto su App Store".
 APP_STORE_URL = "https://apps.apple.com/it/app/quanto-manca-countdown-feste/id6830202016"
+# Il link dei pulsanti "Scarica" con il token di campagna: in App Store Connect › Analisi i download
+# arrivati dal sito si vedono come fonte "sito". Per i dati strutturati resta il link pulito qui sopra.
+APP_STORE_CAMPAIGN_URL = "https://apps.apple.com/app/apple-store/id6830202016?pt=128950161&ct=sito&mt=8"
 SUPPORT_EMAIL = "supporto.quantomanca@gmail.com"
 AUTHOR = "Antonio Rossi"
 # Profili social: compaiono nel piè di pagina e, per Google, nei dati strutturati della home.
@@ -148,7 +151,7 @@ ICON_STORE = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" widt
 
 def store_button(extra=""):
     if APP_STORE_URL:
-        return f'<a class="btn btn-primary {extra}" href="{e(APP_STORE_URL)}">{ICON_STORE}Scarica gratis su App Store</a>'
+        return f'<a class="btn btn-primary {extra}" href="{e(APP_STORE_CAMPAIGN_URL or APP_STORE_URL)}">{ICON_STORE}Scarica gratis su App Store</a>'
     return f'<span class="btn btn-soon {extra}" role="note">{ICON_STORE}<span><small>Per iPhone</small>Presto su App Store</span></span>'
 
 
@@ -330,7 +333,7 @@ ADVENT_ORNAMENTS = ["⭐️", "🔔", "🎁", "❄️", "🕯️", "🍪", "🦌
 
 HOME_FAQ = [
     ("Quanto Manca è gratis?",
-     "Sì. L'app si scarica gratis e la prossima festa in calendario è sempre sbloccata. Le altre feste si sbloccano con un breve video facoltativo, valido fino al giorno della festa. Con <strong>Quanto Manca Plus</strong>, a 0,99 € una volta sola, togli la pubblicità e sblocchi tutto per sempre."),
+     "Sì. L'app si scarica gratis e la prossima festa in calendario è sempre sbloccata. Le altre feste si sbloccano con un breve video facoltativo, valido fino al giorno della festa. Con <strong>Quanto Manca Plus</strong>, a 1,99 € una volta sola, togli la pubblicità e sblocchi tutto per sempre."),
     ("Su quali dispositivi funziona?",
      "Su iPhone con iOS 17 o successivo, con i widget per la schermata Home e per il blocco schermo."),
     ("Il conto alla rovescia usa il mio fuso orario?",
@@ -604,7 +607,7 @@ def home():
 </ul>
 </div>
 <div class="plan plus reveal">
-<h3>{APP_NAME} Plus <span class="price">0,99 € <small>una volta</small></span></h3>
+<h3>{APP_NAME} Plus <span class="price">1,99 € <small>una volta</small></span></h3>
 <ul class="checks">
 <li><strong>Niente pubblicità</strong>, mai</li>
 <li>Tutte le feste <strong>sempre sbloccate</strong></li>
@@ -818,6 +821,7 @@ def privacy():
 <p>La versione gratuita mostra video pubblicitari facoltativi tramite Google AdMob, un servizio di Google Ireland Limited. Per mostrare gli annunci, misurarne l'efficacia e prevenire frodi, Google può raccogliere: identificatori del dispositivo, posizione approssimativa (dedotta dall'indirizzo IP), interazioni con gli annunci, dati di diagnostica e prestazioni.</p>
 <p>Al primo avvio, nello Spazio economico europeo e nel Regno Unito, l'app ti chiede il consenso tramite la piattaforma di gestione del consenso di Google. Puoi cambiare scelta in qualsiasi momento da Impostazioni › Privacy degli annunci. </p>
 <p><strong>Tracciamento.</strong> Dalla versione 1.4.1, al primo avvio (dopo la guida e, in Europa, dopo il modulo di Google) {APP_NAME} ti chiede con la richiesta di sistema di Apple (App Tracking Transparency) il permesso di usare l'identificatore pubblicitario del dispositivo (IDFA). Se acconsenti, Google AdMob può usarlo, insieme ai dati sulle interazioni con gli annunci e alla posizione approssimativa, per mostrarti annunci più adatti e misurarne i risultati, anche collegandoli a dati di altre aziende. Se rifiuti, l'app funziona allo stesso modo e l'identificatore non viene usato. Puoi cambiare scelta quando vuoi da Impostazioni › Privacy e sicurezza › Tracciamento.</p>
+<p><strong>Statistiche anonime.</strong> Dalla versione 1.4.2 {APP_NAME} invia a TelemetryDeck (TelemetryDeck GmbH, Germania) segnali anonimi sull'uso dell'app, per esempio quante volte si apre la schermata di Plus, si condivide un'immagine o si completa un acquisto. I segnali non contengono il tuo nome, la tua email, i testi che scrivi o l'identificatore pubblicitario: l'identificativo del dispositivo viene cifrato prima dell'invio. Servono solo a capire come migliorare l'app.</p>
 <p>Come Google tratta i dati: <a href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a> e <a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
 
 <h2>Acquisti ({APP_NAME} Plus)</h2>
