@@ -593,8 +593,8 @@ def home():
 <div class="wrap">
 <div class="section-head reveal">
 <p class="eyebrow"><span class="dot"></span>Prezzi</p>
-<h2>Gratis. O tutto, per meno di un euro.</h2>
-<p>Niente banner e niente annunci a sorpresa: i video partono solo quando scegli tu di guardarli.</p>
+<h2>Gratis. O tutto, con un solo pagamento.</h2>
+<p>Niente banner: i video partono solo quando scegli tu di guardarli. Nel calendario dell'Avvento, sotto la casella aperta, può comparire un annuncio segnalato come tale.</p>
 </div>
 <div class="plans">
 <div class="plan reveal">
@@ -804,7 +804,7 @@ def privacy():
 <div class="wrap">
 <p class="eyebrow"><span class="dot"></span>Privacy</p>
 <h1>Informativa sulla privacy</h1>
-<p class="updated">Ultimo aggiornamento: 18 novembre 2026</p>
+<p class="updated">Ultimo aggiornamento: 19 novembre 2026</p>
 
 <div class="card">
 <p>{APP_NAME} è un'app per iPhone sviluppata da {AUTHOR} (di seguito «noi»). Questa informativa spiega quali dati vengono trattati quando usi l'app e come puoi esercitare i tuoi diritti ai sensi del Regolamento (UE) 2016/679 (GDPR).</p>
@@ -818,7 +818,7 @@ def privacy():
 </ul>
 
 <h2>Pubblicità (Google AdMob)</h2>
-<p>La versione gratuita mostra video pubblicitari facoltativi tramite Google AdMob, un servizio di Google Ireland Limited. Per mostrare gli annunci, misurarne l'efficacia e prevenire frodi, Google può raccogliere: identificatori del dispositivo, posizione approssimativa (dedotta dall'indirizzo IP), interazioni con gli annunci, dati di diagnostica e prestazioni.</p>
+<p>La versione gratuita mostra video pubblicitari facoltativi e, nel calendario dell'Avvento, un annuncio nativo sotto la casella aperta, segnalato dall'etichetta «Annuncio». Gli annunci sono forniti da Google AdMob, un servizio di Google Ireland Limited. Per mostrare gli annunci, misurarne l'efficacia e prevenire frodi, Google può raccogliere: identificatori del dispositivo, posizione approssimativa (dedotta dall'indirizzo IP), interazioni con gli annunci, dati di diagnostica e prestazioni.</p>
 <p>Al primo avvio, nello Spazio economico europeo e nel Regno Unito, l'app ti chiede il consenso tramite la piattaforma di gestione del consenso di Google. Puoi cambiare scelta in qualsiasi momento da Impostazioni › Privacy degli annunci. </p>
 <p><strong>Tracciamento.</strong> Dalla versione 1.4.1, al primo avvio (dopo la guida e, in Europa, dopo il modulo di Google) {APP_NAME} ti chiede con la richiesta di sistema di Apple (App Tracking Transparency) il permesso di usare l'identificatore pubblicitario del dispositivo (IDFA). Se acconsenti, Google AdMob può usarlo, insieme ai dati sulle interazioni con gli annunci e alla posizione approssimativa, per mostrarti annunci più adatti e misurarne i risultati, anche collegandoli a dati di altre aziende. Se rifiuti, l'app funziona allo stesso modo e l'identificatore non viene usato. Puoi cambiare scelta quando vuoi da Impostazioni › Privacy e sicurezza › Tracciamento.</p>
 <p><strong>Statistiche anonime.</strong> Dalla versione 1.4.2 {APP_NAME} invia a TelemetryDeck (TelemetryDeck GmbH, Germania) segnali anonimi sull'uso dell'app, per esempio quante volte si apre la schermata di Plus, si condivide un'immagine o si completa un acquisto. I segnali non contengono il tuo nome, la tua email, i testi che scrivi o l'identificatore pubblicitario: l'identificativo del dispositivo viene cifrato prima dell'invio. Servono solo a capire come migliorare l'app.</p>
